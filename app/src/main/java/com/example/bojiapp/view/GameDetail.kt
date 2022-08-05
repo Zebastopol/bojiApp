@@ -9,7 +9,9 @@ import androidx.lifecycle.Observer
 import com.example.bojiapp.databinding.ActivityGameDetailBinding
 import com.example.bojiapp.repository.recycler.GAMEID_MESSAGE
 import com.squareup.picasso.Picasso
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class GameDetail : AppCompatActivity() {
 
     private lateinit var binding: ActivityGameDetailBinding
@@ -27,11 +29,19 @@ class GameDetail : AppCompatActivity() {
             with(binding){
                 tvDetalleNombre.text = game.nombre
                 tvDetalleDescripcion.text = game.descripcion
-                tvDetallePrecio.text = "${game.precio}"
+                tvDetallePrecio.text = game.precio
+                tvPlayernum.text = game.jugadores
+                tvAgeDetail.text = game.edad
+                tvTiempoJuego.text = game.tiempoJuego
+                tvYearDetail.text = game.año.toString()
+                tvDesign.text = game.diseño
+                tvArtistaDetalle.text = game.artista
+                tvEditorDetalle.text = game.editor
+                tvLink.text = game.link
                 Picasso.get().load(game.imagen).into(imgDetalle)
             }
 
-            binding.btnComprar.setOnClickListener{
+            binding.btnMail.setOnClickListener{
                 val  emailText = """
                 Hola, 
                     
@@ -52,6 +62,11 @@ class GameDetail : AppCompatActivity() {
                 }
 
                 startActivity(intentMail)
+            }
+            binding.btnPhone.setOnClickListener {
+                val dialIntent = Intent(Intent.ACTION_DIAL)
+                dialIntent.data = Uri.parse("Tel: " + "+569 #### # ###")
+                startActivity(dialIntent)
             }
 
         })

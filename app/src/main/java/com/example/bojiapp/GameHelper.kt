@@ -7,17 +7,19 @@ class GameHelper {
         fun emptyGameModel():GameModel{
             return GameModel(
                 0,
-            "",
-            "",
-            0,
-            "",
-            0,
-            0,
-            "",
-            "",
-            "",
-            "",
-            "")
+                "sin datos",
+                "sin datos",
+                "sin datos",
+                "sin datoss",
+                "sin datos",
+                0,
+                "sin datos",
+                "sin datos",
+                "sin datos",
+                "sin datos",
+                "sin datos",
+                "sin datos"
+            )
         }
     }
 }

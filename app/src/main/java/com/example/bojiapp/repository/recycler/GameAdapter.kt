@@ -25,12 +25,14 @@ class GameAdapter(private val games:List<Game>):RecyclerView.Adapter<GameAdapter
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val game = games.get(position)
         with(holder.binding){
-            tvNombre.text = game.nombre
-            tvPrecio.text = game.precio.toString()
-            tvEdad.text   = game.edad.toString()
-            tvJugadores.text= game.jugadores
+            tvName.text = game.nombre
+            tvPublisher.text = game.editor
+            tvPrice.text = "Precio: ${game.precio}"
+            tvAge.text   = "Edad: ${game.edad}"
+            tvPlayers.text= "Jugadores: ${game.jugadores}"
             Picasso.get().load(game.imagen).into(imageView)
         }
+        // onclick libro item
         holder.binding.root.setOnClickListener(View.OnClickListener {
             val intent = Intent(it.context, GameDetail::class.java).apply {
                 putExtra(GAMEID_MESSAGE, game.id)

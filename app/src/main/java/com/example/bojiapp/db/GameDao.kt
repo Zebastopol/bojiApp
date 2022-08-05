@@ -15,7 +15,7 @@ interface GameDao {
     fun deleteAll()
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(vararg libros:GameEntity)
+    fun insertAll(vararg games:GameEntity)
 
     @Delete
     fun delete(game:GameEntity)

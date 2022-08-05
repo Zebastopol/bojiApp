@@ -8,7 +8,7 @@ import com.example.bojiapp.databinding.ActivityMainBinding
 import com.example.bojiapp.repository.recycler.GameAdapter
 import com.example.bojiapp.view.GameViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.Observer
+import androidx.lifecycle.Observer
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -21,15 +21,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView( binding.root )
 
-        //Recycler
+        //RecyclerView
         val recyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         gameViewModel.getAllGames()
 
-        gameViewModel.games.observe(this, androidx.lifecycle.Observer { games ->
+        gameViewModel.games.observe(this, Observer { games ->
             binding.recyclerView.adapter = GameAdapter(games)
         })
     }

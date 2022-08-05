@@ -10,7 +10,7 @@ class GameMapper {
                 return GameEntity(
                     id, nombre, imagen, precio, jugadores,
                     edad, año, tiempoJuego,descripcion,link,diseño,
-                    artista /*,categoria,mecanismos*/
+                    artista, editor
                 )
             }
         }
